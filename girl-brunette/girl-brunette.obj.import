@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/girl-brunette.obj-8d4b5ea9fe820dad683a6a4b8b935dcf.mesh"
+
+[deps]
+
+files=[ "res://.import/girl-brunette.obj-8d4b5ea9fe820dad683a6a4b8b935dcf.mesh" ]
+
+source_file="res://girl-brunette/girl-brunette.obj"
+dest_files=[ "res://.import/girl-brunette.obj-8d4b5ea9fe820dad683a6a4b8b935dcf.mesh", "res://.import/girl-brunette.obj-8d4b5ea9fe820dad683a6a4b8b935dcf.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

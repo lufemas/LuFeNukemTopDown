@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Hero2.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleMesh" id=1]
+
+[sub_resource type="CylinderMesh" id=2]
+
+[sub_resource type="CapsuleShape" id=3]
+
+[sub_resource type="BoxShape" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.32549, 0.0980392, 0.0980392, 1 )
+
+[sub_resource type="CubeMesh" id=6]
+material = SubResource( 5 )
+
+[sub_resource type="SphereMesh" id=7]
+
+[node name="SandBoxLevel" type="Spatial"]
+
+[node name="Hero2" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89497, 33.9282, 132.379 )
+script = ExtResource( 1 )
+
+[node name="BodyMesh" type="MeshInstance" parent="Hero2"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Face" type="MeshInstance" parent="Hero2"]
+transform = Transform( -1.89654e-08, 1, -1.89654e-08, 0, -1.62921e-07, -0.116409, -0.116409, -1.62921e-07, 3.08986e-15, 0.652929, 1, 0.0121689 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Hero2"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+shape = SubResource( 3 )
+
+[node name="Floor" type="StaticBody" parent="."]
+transform = Transform( 45.0422, 0, 0, 0, 0.131973, 0, 0, 0, 34.1323, 0, 30.9282, 130.033 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Floor"]
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="CameraMain" type="Camera" parent="."]
+transform = Transform( -1.62921e-07, 0.766044, -0.642788, 0, 0.642788, 0.766044, 1, 1.24805e-07, -1.04724e-07, -58.5089, 88.3519, 128.033 )
+current = true
+fov = 35.1
+size = 100.0
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 31.1494, 131.033 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="RayLookAt" type="RayCast" parent="."]
+transform = Transform( 0.960163, 0.261496, -0.0985216, -0.278457, 0.924882, -0.25895, 0.0234065, 0.276069, 0.960853, -16.0506, 52.9282, 128.365 )
+visible = false
+enabled = true
+cast_to = Vector3( 58, -35, 31 )
+collision_mask = 1024
+
+[node name="Light" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.554, 32, 129.593 )
+light_energy = 12.87
+light_indirect_energy = 1.34
+light_specular = 0.26
+omni_range = 13.4
+omni_attenuation = 1.27456
+
+[node name="MeshInstance2" type="MeshInstance" parent="Light"]
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.999991, 3.46945e-18, 0.00436337, 0.000739761, 0.985524, 0.169537, -0.00430021, 0.169539, -0.985514, 0, 63.3778, 45.2008 )
